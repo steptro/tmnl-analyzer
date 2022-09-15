@@ -52,6 +52,7 @@ function Graph() {
     {
         'selector': '[annotation = "new_transaction"]',
         style: {
+            label: "new transaction",
             'background-color': 'red',
             'line-color': 'red',
             'line-style': 'dashed',
