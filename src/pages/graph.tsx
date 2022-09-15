@@ -20,6 +20,16 @@ function Graph() {
       },
     },
     {
+      selector : 'edge',
+        css: {
+          'curve-style': 'bezier',
+          'width': 6,
+          'target-arrow-shape': 'triangle',
+          'line-color': 'blue',
+          'target-arrow-color': 'blue'
+      },
+    },
+    {
       selector: 'node[type = "account"]',
       css: {
         "background-image": "/account.png",
@@ -35,7 +45,8 @@ function Graph() {
       selector: '[annotation = "suspect_aml"]',
       css: {
           'background-color': 'red',
-          'line-color': 'red'
+          'line-color': 'red',
+          'target-arrow-color': 'red'
       }
     },
     {
@@ -44,6 +55,7 @@ function Graph() {
             'background-color': 'red',
             'line-color': 'red',
             'line-style': 'dashed',
+            'target-arrow-color': 'red'
         }
     },
     {
