@@ -20,15 +20,15 @@ function Graph() {
       },
     },
     {
-      selector: 'node[type == "account"]',
+      selector: 'node[type = "account"]',
       style: {
-        "background-image": "account.jpg",
+        "background-image": "/account.png",
       },
     },
     {
-      selector: 'node[type == "customer"]',
+      selector: 'node[type = "customer"]',
       css: {
-        "background-image": "customer.jpg",
+        "background-image": "/customer.png",
       },
     },
   ];
@@ -37,7 +37,7 @@ function Graph() {
     name: "cose",
     directed: true,
     padding: 10,
-    animate: "end",
+    animate: true,
     randomize: false,
   };
 
