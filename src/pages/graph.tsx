@@ -50,27 +50,33 @@ function Graph() {
       }
     },
     {
-        'selector': '[annotation = "new_transaction"]',
-        style: {
-            label: "new transaction",
-            'background-color': 'red',
-            'line-color': 'red',
-            'line-style': 'dashed',
-            'target-arrow-color': 'red'
-        }
+      selector: '[annotation = "new_transaction"]',
+      style: {
+          label: "new transaction",
+          'background-color': 'red',
+          'line-color': 'red',
+          'line-style': 'dashed',
+          'target-arrow-color': 'red'
+      }
     },
     {
-        selector: '[cdd_risk > 3]',
-        style: {
-            'background-color': 'red',
-            'shape': 'triangle'
-        }
+      selector: '[cdd_risk > 3]',
+      css: {
+          'background-color': 'red',
+          'shape': 'triangle'
+      }
+    },
+      {
+      selector: '[type = "is_customer"]',
+      css: {
+        'target-arrow-shape': "none"
+      }
     },
   ];
 
   const layout = {
     name: "cose",
-    directed: true,
+    directed: false,
     padding: 10,
     animate: true,
     randomize: false,
