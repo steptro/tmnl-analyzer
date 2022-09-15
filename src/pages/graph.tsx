@@ -88,7 +88,13 @@ function Graph() {
   return (
     <Layout>
       <div className="bg-white rounded-md">
-        <CytoscapeComponent elements={elements} layout={layout} stylesheet={style} className="w-full h-full" />
+        <CytoscapeComponent
+          elements={elements}
+          layout={layout}
+          stylesheet={style}
+          style={{ width: "800px", height: "800px" }}
+          className="w-full h-full"
+        />
       </div>
     </Layout>
   );
