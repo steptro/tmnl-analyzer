@@ -170,7 +170,7 @@ function Graph2() {
             elements={elements}
             layout={layout}
             stylesheet={style}
-            style={{ width: "800px", height: "800px" }}
+            style={{ width: "1080px", height: "1000px" }}
             className="w-full h-full"
             cy={(something) => something.on("tap", "node[type = \"news\"]", () => {
                 window.open("https://www.dutchnews.nl/news/2022/09/jumbo-boss-remains-in-custody-as-money-laundering-probe-continues/")
