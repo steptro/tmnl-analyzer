@@ -154,18 +154,12 @@ function Graph() {
             >
               Fetch related news
             </button>
-
-
             <CytoscapeComponent
               elements={elements}
               layout={layout}
               stylesheet={style}
               style={{ width: "1080px", height: "1000px" }}
               className="w-full h-full"
-              cy={(something) => something.on("tap", "node", () => {
-                window.open("https://google.com")
-
-              })}
             />
           </div>
         )}

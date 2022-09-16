@@ -17,67 +17,126 @@ function Graph2() {
         height: 80,
         width: 80,
         "background-fit": "cover",
+        "background-opacity": 0.7,
         "border-color": "#000",
-        "border-width": 3,
-        "border-opacity": 0.5,
+        "border-width": 5,
+        "border-opacity": 0.9,
         "text-valign": "bottom",
         "text-halign": "center",
       },
     },
     {
-      selector: 'node[type == "account"]',
-      style: {
-        "background-image": "account.jpg",
+      selector: "edge",
+      css: {
+        "curve-style": "bezier",
+        width: 6,
+        "target-arrow-shape": "triangle",
+        "line-color": "black",
+        "target-arrow-color": "black",
       },
     },
     {
-      selector: 'node[type == "customer"]',
+      selector: 'node[type = "account"]',
       css: {
-        "background-image": "customer.jpg",
+        "background-image": "/account.png",
+        "background-color": "#FF8C00",
+      },
+    },
+    {
+      selector: 'node[type = "customer"]',
+      css: {
+        "background-image": "/customer.png",
+        "background-color": "#00BFFF",
+      },
+    },
+    {
+      selector: 'node[type = "news"]',
+      css: {
+        "background-image": "/news.png",
+        "background-color": "#00BFFF",
+        "shape": "roundrectangle",
+        "height": 200,
+        "width": 300,
+      },
+    },
+    {
+      selector: '[annotation = "suspect_aml"]',
+      css: {
+        "background-color": "red",
+        "line-color": "red",
+        "target-arrow-color": "red",
+      },
+    },
+    {
+      selector: '[annotation = "new_transaction"]',
+      css: {
+        label: "new transaction",
+        "line-color": "red",
+        "line-style": "dashed",
+        "target-arrow-color": "red",
+      },
+    },
+    {
+      selector: "[cdd_risk > 3]",
+      css: {
+        "background-color": "red",
+      },
+    },
+    {
+      selector: '[type = "is_customer"]',
+      css: {
+        "target-arrow-shape": "none",
       },
     },
   ];
 
   const layout = {
     name: "cose",
-    directed: true,
+    directed: false,
     padding: 10,
     animate: "end",
-    randomize: false,
+    randomize: true,
   };
 
   const elements = [
-    { data: { id: "1", type: "account", label: "account_1" } },
-    { data: { id: "2", type: "account", label: "account_2" } },
-    { data: { id: "3", type: "account", label: "account_3" } },
-    { data: { id: "4", type: "account", label: "account_4" } },
-    { data: { id: "5", type: "account", label: "account_5" } },
-    { data: { id: "6", type: "account", label: "account_6" } },
-    { data: { id: "7", type: "account", label: "account_7" } },
-    { data: { id: "8", type: "account", label: "account_8" } },
-    { data: { id: "9", type: "account", label: "account_9" } },
-    { data: { id: "10", type: "account", label: "account_10" } },
-    { data: { id: "11", type: "customer", label: "Julie Johnston", cdd_risk: 1, country: "MT" } },
-    { data: { id: "12", type: "customer", label: "Jennifer Neilson", cdd_risk: 1, country: "NL" } },
-    { data: { id: "13", type: "customer", label: "Roger Paletta", cdd_risk: 5, country: "NL" } },
-    { data: { id: "14", type: "customer", label: "Jimmy Caron", cdd_risk: 1, country: "NL" } },
-    { data: { id: "15", type: "customer", label: "Bobby Harewood", cdd_risk: 1, country: "BE" } },
-    { data: { id: "16", type: "customer", label: "Shannon Portis", cdd_risk: 1, country: "NL" } },
-    { data: { id: "17", type: "customer", label: "Donald Stahl", cdd_risk: 1, country: "NL" } },
-    { data: { id: "18", type: "customer", label: "George Gallo", cdd_risk: 5, country: "NL" } },
-    { data: { id: "19", type: "customer", label: "William Smart", cdd_risk: 1, country: "RU" } },
-    { data: { id: "20", type: "customer", label: "Emma Carovski", cdd_risk: 1, country: "NL" } },
-    { data: { source: "1", target: "3", type: "transaction", annotation: ["suspect_aml"] } },
+    // communities
+    { data: { id: "A", label: "community_a" } },
+    { data: { id: "B", label: "community_b" } },
+    // nodes
+    { data: { id: "1", type: "account", label: "account_1", parent: "A" } },
+    { data: { id: "2", type: "account", label: "account_2", parent: "A" } },
+    { data: { id: "3", type: "account", label: "account_3", parent: "A" } },
+    { data: { id: "4", type: "account", label: "account_4", parent: "A" } },
+    { data: { id: "5", type: "account", label: "account_5", parent: "A" } },
+    { data: { id: "6", type: "account", label: "account_6", parent: "A" } },
+    { data: { id: "7", type: "account", label: "account_7", parent: "B" } },
+    { data: { id: "8", type: "account", label: "account_8", parent: "B" } },
+    { data: { id: "9", type: "account", label: "account_9", parent: "B" } },
+    { data: { id: "10", type: "account", label: "account_10", parent: "B" } },
+    { data: { id: "11", type: "customer", label: "Julie Johnston", cdd_risk: 5, country: "MT", parent: "A" } },
+    { data: { id: "12", type: "customer", label: "Jennifer Neilson", cdd_risk: 1, country: "NL", parent: "A" } },
+    { data: { id: "13", type: "customer", label: "Roger Paletta", cdd_risk: 1, country: "NL", parent: "A" } },
+    { data: { id: "14", type: "customer", label: "Jimmy Caron", cdd_risk: 1, country: "MT", parent: "A" } },
+    { data: { id: "15", type: "customer", label: "Bobby Harewood", cdd_risk: 1, country: "BE", parent: "A" } },
+    { data: { id: "16", type: "customer", label: "Shannon Portis", cdd_risk: 1, country: "NL", parent: "A" } },
+    { data: { id: "17", type: "customer", label: "Donald Stahl", cdd_risk: 1, country: "NL", parent: "B" } },
+    { data: { id: "18", type: "customer", label: "George Gallo", cdd_risk: 1, country: "NL", parent: "B" } },
+    { data: { id: "19", type: "customer", label: "Frits van Eerd", cdd_risk: 5, country: "RU", parent: "B" } },
+    { data: { id: "20", type: "customer", label: "Emma Carovski", cdd_risk: 1, country: "NL", parent: "B" } },
+    { data: { id: "21", type: "news", label: "News Article" } },
+
+    // edges
+    { data: { source: "1", target: "3", type: "transaction", annotation: "suspect_aml" } },
     { data: { source: "2", target: "3", type: "transaction" } },
     { data: { source: "3", target: "4", type: "transaction" } },
     { data: { source: "4", target: "5", type: "transaction" } },
     { data: { source: "5", target: "6", type: "transaction" } },
-    { data: { source: "3", target: "6", type: "transaction", annotation: ["suspect_aml"] } },
-    { data: { source: "7", target: "8", type: "transaction", annotation: ["suspect_aml"] } },
-    { data: { source: "8", target: "9", type: "transaction", annotation: ["suspect_aml"] } },
+    { data: { source: "3", target: "6", type: "transaction", annotation: "suspect_aml" } },
+    { data: { source: "7", target: "8", type: "transaction", annotation: "suspect_aml" } },
+    { data: { source: "8", target: "9", type: "transaction", annotation: "suspect_aml" } },
     { data: { source: "9", target: "10", type: "transaction" } },
     { data: { source: "8", target: "10", type: "transaction" } },
-    { data: { source: "6", target: "7", type: "transaction", annotation: ["suspect_aml"] } },
+    { data: { source: "6", target: "7", type: "transaction", annotation: "new_transaction" } },
     { data: { source: "1", target: "11", type: "is_customer" } },
     { data: { source: "2", target: "12", type: "is_customer" } },
     { data: { source: "3", target: "13", type: "is_customer" } },
@@ -88,6 +147,7 @@ function Graph2() {
     { data: { source: "8", target: "18", type: "is_customer" } },
     { data: { source: "9", target: "19", type: "is_customer" } },
     { data: { source: "10", target: "20", type: "is_customer" } },
+    { data: { source: "19", target: "21", type: "has_news" } },
   ];
 
   console.dir(data);
@@ -112,6 +172,9 @@ function Graph2() {
             stylesheet={style}
             style={{ width: "800px", height: "800px" }}
             className="w-full h-full"
+            cy={(something) => something.on("tap", "node[type = \"news\"]", () => {
+                window.open("https://www.dutchnews.nl/news/2022/09/jumbo-boss-remains-in-custody-as-money-laundering-probe-continues/")
+              })}
           />
         )}
       </div>
