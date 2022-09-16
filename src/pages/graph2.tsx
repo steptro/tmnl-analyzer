@@ -4,7 +4,7 @@ import CytoscapeComponent from "react-cytoscapejs";
 import Layout from "../partials/Layout";
 import { useListHackathonsQuery, ListHackathonsQuery } from "../generated/graphql";
 
-function Graph() {
+function Graph2() {
   const { data, error, loading } = useListHackathonsQuery();
 
   const style: Stylesheet[] = [
@@ -110,4 +110,4 @@ function Graph() {
   );
 }
 
-export default Graph;
+export default Graph2;

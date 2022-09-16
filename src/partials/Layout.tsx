@@ -5,6 +5,7 @@ import {
   BuildingOffice2Icon,
   BuildingOfficeIcon,
   CheckCircleIcon,
+  CurrencyEuroIcon,
   HomeIcon,
   PresentationChartLineIcon,
   UsersIcon,
@@ -16,6 +17,7 @@ import Logo from "../Components/Logo/Logo";
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon },
   { name: "Graph", href: "/graph", icon: PresentationChartLineIcon },
+  { name: "Transactions", href: "/transactions", icon: CurrencyEuroIcon },
 ];
 
 function classNames(...classes: string[]) {
@@ -107,7 +109,7 @@ export default function Layout({ children }: any) {
                         <div>
                           <img
                             className="inline-block h-10 w-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            src="https://ui-avatars.com/api/?name=Stephan+Tromer"
                             alt=""
                           />
                         </div>
@@ -158,11 +160,7 @@ export default function Layout({ children }: any) {
               <a href="#" className="group block w-full flex-shrink-0">
                 <div className="flex items-center">
                   <div>
-                    <img
-                      className="inline-block h-9 w-9 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
+                    <img className="inline-block h-9 w-9 rounded-full" src="https://ui-avatars.com/api/?name=Stephan+Tromer" alt="" />
                   </div>
                   <div className="ml-3">
                     <p className="text-sm font-medium text-white">Stephan Tromer</p>
@@ -193,14 +191,14 @@ export default function Layout({ children }: any) {
                       <div className="flex items-center">
                         <img
                           className="hidden h-16 w-16 rounded-full sm:block"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          src="https://ui-avatars.com/api/?name=Stephan+Tromer"
                           alt=""
                         />
                         <div>
                           <div className="flex items-center">
                             <img
                               className="h-16 w-16 rounded-full sm:hidden"
-                              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                              src="https://ui-avatars.com/api/?name=Stephan+Tromer"
                               alt=""
                             />
                             <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:leading-9">
@@ -226,7 +224,7 @@ export default function Layout({ children }: any) {
                   </div>
                 </div>
               </div>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8 py-4 sm:py-6">{children}</div>
+              <div className="mx-auto max-w-7xl px-4 lg:mx-auto lg:max-w-6xl py-4">{children}</div>
             </div>
           </main>
         </div>
