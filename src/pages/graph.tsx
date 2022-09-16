@@ -8,13 +8,14 @@ function Graph() {
     {
       selector: "node",
       css: {
-        label: "data(label)",
-        height: 80,
-        width: 80,
+        "label": "data(label)",
+        "height": 80,
+        "width": 80,
         "background-fit": "cover",
+        "background-opacity": 0.5,
         "border-color": "#000",
-        "border-width": 3,
-        "border-opacity": 0.5,
+        "border-width": 5,
+        "border-opacity": 0.3,
         "text-valign": "bottom",
         "text-halign": "center",
       },
@@ -25,20 +26,22 @@ function Graph() {
           'curve-style': 'bezier',
           'width': 6,
           'target-arrow-shape': 'triangle',
-          'line-color': 'blue',
-          'target-arrow-color': 'blue'
+          'line-color': 'black',
+          'target-arrow-color': 'black'
       },
     },
     {
       selector: 'node[type = "account"]',
       css: {
         "background-image": "/account.png",
+        "background-color": "#FF8C00",
       },
     },
     {
       selector: 'node[type = "customer"]',
       css: {
         "background-image": "/customer.png",
+        "background-color": "#00BFFF",
       },
     },
     {
@@ -51,9 +54,8 @@ function Graph() {
     },
     {
       selector: '[annotation = "new_transaction"]',
-      style: {
-          label: "new transaction",
-          'background-color': 'red',
+      css: {
+          'label': "new transaction",
           'line-color': 'red',
           'line-style': 'dashed',
           'target-arrow-color': 'red'
@@ -63,7 +65,6 @@ function Graph() {
       selector: '[cdd_risk > 3]',
       css: {
           'background-color': 'red',
-          'shape': 'triangle'
       }
     },
       {
@@ -78,8 +79,8 @@ function Graph() {
     name: "cose",
     directed: false,
     padding: 10,
-    animate: true,
-    randomize: false,
+    animate: 'end',
+    randomize: true,
   };
 
   const elements = [
