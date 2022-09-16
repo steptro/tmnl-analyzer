@@ -3,8 +3,10 @@ import React from "react";
 import CytoscapeComponent from "react-cytoscapejs";
 import Layout from "../partials/Layout";
 import { useListHackathonsQuery, ListHackathonsQuery } from "../generated/graphql";
+import { useNavigate } from "react-router-dom";
 
 function Graph() {
+  const navigate = useNavigate();
   const { data, error, loading } = useListHackathonsQuery();
 
   const style: Stylesheet[] = [
@@ -145,6 +147,14 @@ function Graph() {
 
         {!loading && !error && (
           <div className="bg-white rounded-md">
+            <h2 className="text-2xl mb-2">Community visualization</h2>
+            <button
+              onClick={() => navigate("/graph2")}
+              className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Fetch related news
+            </button>
+
             <CytoscapeComponent
               elements={elements}
               layout={layout}
