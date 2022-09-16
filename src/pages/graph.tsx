@@ -4,6 +4,7 @@ import CytoscapeComponent from "react-cytoscapejs";
 import Layout from "../partials/Layout";
 import { useListHackathonsQuery, ListHackathonsQuery } from "../generated/graphql";
 import { useNavigate } from "react-router-dom";
+import { ArrowPathIcon } from "@heroicons/react/24/solid";
 
 function Graph() {
   const navigate = useNavigate();
@@ -83,20 +84,20 @@ function Graph() {
       css: {
         "line-color": "black",
         "target-arrow-shape": "none",
-      }
+      },
     },
     {
       selector: 'node[ type = "adress1"]',
       css: {
         "background-image": "/location.png",
-      }
+      },
     },
     {
       selector: 'node[ type = "adress2"]',
       css: {
         "background-image": "/location.png",
-      }
-    }
+      },
+    },
   ];
 
   const layout = {
@@ -166,12 +167,19 @@ function Graph() {
   return (
     <Layout>
       <div className="bg-white rounded-md p-4">
-        {loading && <div>Loading</div>}
+        <h2 className="text-2xl mb-2">Transaction Network</h2>
+
+        {loading && (
+          <div className="h-screen w-screen">
+            <div className="h-8 w-8">
+              <ArrowPathIcon className="animate-spin" />
+            </div>
+          </div>
+        )}
         {error && <div>Error</div>}
 
         {!loading && !error && (
           <div className="bg-white rounded-md">
-            <h2 className="text-2xl mb-2">Transaction Network</h2>
             <button
               onClick={() => navigate("/graph2")}
               className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -184,11 +192,19 @@ function Graph() {
               stylesheet={style}
               style={{ width: "2080px", height: "1000px" }}
               className="w-full h-full"
-              cy={(something) => something.on("tap", "node[type = \"adress1\"]", () => {
-                window.open("https://www.google.com/maps/@52.3542897,4.9122285,3a,75y,93.16h,90t/data=!3m7!1e1!3m5!1s4zkAJWQtBG-pnSVl8kGpWw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D4zkAJWQtBG-pnSVl8kGpWw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D95.171265%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192");
-              }).on("tap", "node[type = \"adress2\"]", () => {
-                window.open("https://www.google.com/maps/@51.65584,5.4400887,3a,75y,106.38h,87.84t/data=!3m7!1e1!3m5!1sahFXCc2hGVgWgoh8znGUOw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DahFXCc2hGVgWgoh8znGUOw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D39.35957%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656")
-              })}
+              cy={something =>
+                something
+                  .on("tap", 'node[type = "adress1"]', () => {
+                    window.open(
+                      "https://www.google.com/maps/@52.3542897,4.9122285,3a,75y,93.16h,90t/data=!3m7!1e1!3m5!1s4zkAJWQtBG-pnSVl8kGpWw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D4zkAJWQtBG-pnSVl8kGpWw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D95.171265%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192",
+                    );
+                  })
+                  .on("tap", 'node[type = "adress2"]', () => {
+                    window.open(
+                      "https://www.google.com/maps/@51.65584,5.4400887,3a,75y,106.38h,87.84t/data=!3m7!1e1!3m5!1sahFXCc2hGVgWgoh8znGUOw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DahFXCc2hGVgWgoh8znGUOw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D39.35957%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656",
+                    );
+                  })
+              }
             />
           </div>
         )}

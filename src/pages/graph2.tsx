@@ -4,6 +4,7 @@ import CytoscapeComponent from "react-cytoscapejs";
 import Layout from "../partials/Layout";
 import { useListHackathonsQuery, ListHackathonsQuery } from "../generated/graphql";
 import { useNavigate } from "react-router-dom";
+import { ArrowPathIcon } from "@heroicons/react/24/solid";
 
 function Graph2() {
   const navigate = useNavigate();
@@ -54,9 +55,9 @@ function Graph2() {
       css: {
         "background-image": "/news.png",
         "background-color": "#00BFFF",
-        "shape": "roundrectangle",
-        "height": 200,
-        "width": 300,
+        shape: "roundrectangle",
+        height: 200,
+        width: 300,
       },
     },
     {
@@ -162,7 +163,14 @@ function Graph2() {
         >
           Go back
         </button>
-        {loading && <div>Loading</div>}
+
+        {loading && (
+          <div className="h-screen w-screen mt-2">
+            <div className="h-8 w-8">
+              <ArrowPathIcon className="animate-spin" />
+            </div>
+          </div>
+        )}
         {error && <div>Error</div>}
 
         {!loading && !error && (
@@ -172,9 +180,11 @@ function Graph2() {
             stylesheet={style}
             style={{ width: "2080px", height: "1000px" }}
             className="w-full h-full"
-            cy={(something) => something.on("tap", "node[type = \"news\"]", () => {
-                window.open("https://www.dutchnews.nl/news/2022/09/jumbo-boss-remains-in-custody-as-money-laundering-probe-continues/")
-              })}
+            cy={something =>
+              something.on("tap", 'node[type = "news"]', () => {
+                window.open("https://www.dutchnews.nl/news/2022/09/jumbo-boss-remains-in-custody-as-money-laundering-probe-continues/");
+              })
+            }
           />
         )}
       </div>
