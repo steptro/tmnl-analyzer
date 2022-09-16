@@ -78,6 +78,19 @@ function Graph() {
         "target-arrow-shape": "none",
       },
     },
+    {
+      selector: '[ type = "has_adress"]',
+      css: {
+        "line-color": "black",
+        "target-arrow-shape": "none",
+      }
+    },
+    {
+      selector: 'node[ type = "adress"]',
+      css: {
+        "background-image": "/location.png",
+      }
+    }
   ];
 
   const layout = {
@@ -111,8 +124,10 @@ function Graph() {
     { data: { id: "16", type: "customer", label: "Shannon Portis", cdd_risk: 1, country: "NL", parent: "A" } },
     { data: { id: "17", type: "customer", label: "Donald Stahl", cdd_risk: 1, country: "NL", parent: "B" } },
     { data: { id: "18", type: "customer", label: "George Gallo", cdd_risk: 1, country: "NL", parent: "B" } },
-    { data: { id: "19", type: "customer", label: "William Smart", cdd_risk: 5, country: "RU", parent: "B" } },
+    { data: { id: "19", type: "customer", label: "Frist van Weerd", cdd_risk: 5, country: "RU", parent: "B" } },
     { data: { id: "20", type: "customer", label: "Emma Carovski", cdd_risk: 1, country: "NL", parent: "B" } },
+    { data: { id: "21", type: "adress", label: "Wibaut straat 131", href: "" } },
+    { data: { id: "22", type: "adress", label: "Kasteel Heeswijk 1", href: "" } },
     // edges
     { data: { source: "1", target: "3", type: "transaction", annotation: "suspect_aml" } },
     { data: { source: "2", target: "3", type: "transaction" } },
@@ -135,6 +150,9 @@ function Graph() {
     { data: { source: "8", target: "18", type: "is_customer" } },
     { data: { source: "9", target: "19", type: "is_customer" } },
     { data: { source: "10", target: "20", type: "is_customer" } },
+    { data: { source: "11", target: "21", type: "has_adress" , href: "https://www.google.com/maps/@52.3542897,4.9122285,3a,75y,93.16h,90t/data=!3m7!1e1!3m5!1s4zkAJWQtBG-pnSVl8kGpWw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D4zkAJWQtBG-pnSVl8kGpWw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D95.171265%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192"} },
+    { data: { source: "12", target: "21", type: "has_adress" , href: "https://www.google.com/maps/@52.3542897,4.9122285,3a,75y,93.16h,90t/data=!3m7!1e1!3m5!1s4zkAJWQtBG-pnSVl8kGpWw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D4zkAJWQtBG-pnSVl8kGpWw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D95.171265%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192"} },
+    { data: { source: "19", target: "22", type: "has_adress" , href: "https://www.google.com/maps/@51.65584,5.4400887,3a,75y,106.38h,87.84t/data=!3m7!1e1!3m5!1sahFXCc2hGVgWgoh8znGUOw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DahFXCc2hGVgWgoh8znGUOw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D39.35957%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656"} },
   ];
 
   console.dir(data);
@@ -163,8 +181,7 @@ function Graph() {
               style={{ width: "1080px", height: "1000px" }}
               className="w-full h-full"
               cy={(something) => something.on("tap", "node", () => {
-                window.open("https://google.com")
-
+                window.open()
               })}
             />
           </div>
