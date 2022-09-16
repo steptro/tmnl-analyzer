@@ -154,8 +154,7 @@ function Graph() {
             />
           </div>
         )}
-      </div>{" "}
-      )
+      </div>
     </Layout>
   );
 }
