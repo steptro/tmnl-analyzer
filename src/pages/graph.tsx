@@ -1,4 +1,4 @@
-import { Stylesheet } from "cytoscape";
+import cytoscape, { Stylesheet } from "cytoscape";
 import React from "react";
 import CytoscapeComponent from "react-cytoscapejs";
 import Layout from "../partials/Layout";
@@ -155,12 +155,17 @@ function Graph() {
               Fetch related news
             </button>
 
+
             <CytoscapeComponent
               elements={elements}
               layout={layout}
               stylesheet={style}
               style={{ width: "1080px", height: "1000px" }}
               className="w-full h-full"
+              cy={(something) => something.on("tap", "node", () => {
+                window.open("https://google.com")
+
+              })}
             />
           </div>
         )}
