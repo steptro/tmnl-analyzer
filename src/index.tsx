@@ -6,7 +6,9 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages";
 import Graph from "./pages/graph";
+import Graph2 from "./pages/graph2";
 import Login from "./pages/login";
+import Transactions from "./pages/transactions";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +20,16 @@ const router = createBrowserRouter([
     element: <Graph />,
   },
   {
+    path: "/graph2",
+    element: <Graph2 />,
+  },
+  {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/transactions",
+    element: <Transactions />,
   },
 ]);
 

@@ -2,8 +2,11 @@ import { Stylesheet } from "cytoscape";
 import React from "react";
 import CytoscapeComponent from "react-cytoscapejs";
 import Layout from "../partials/Layout";
+import { useListHackathonsQuery, ListHackathonsQuery } from "../generated/graphql";
 
 function Graph() {
+  const { data, error, loading } = useListHackathonsQuery();
+
   const style: Stylesheet[] = [
     {
       selector: "node",
@@ -132,8 +135,15 @@ function Graph() {
     { data: { source: "10", target: "20", type: "is_customer" } },
   ];
 
+  console.dir(data);
+
   return (
     <Layout>
+      <div className="bg-white rounded-md p-4">
+        {loading && <div>Loading</div>}
+        {error && <div>Error</div>}
+
+        {!loading && !error && (
       <div className="bg-white rounded-md">
         <CytoscapeComponent
           elements={elements}
@@ -142,6 +152,7 @@ function Graph() {
           style={{ width: "1080px", height: "1000px" }}
           className="w-full h-full"
         />
+        )}
       </div>
     </Layout>
   );
