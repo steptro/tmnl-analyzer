@@ -176,7 +176,7 @@ function Graph() {
               elements={elements}
               layout={layout}
               stylesheet={style}
-              style={{ width: "1080px", height: "1000px" }}
+              style={{ width: "2080px", height: "1000px" }}
               className="w-full h-full"
             />
           </div>
