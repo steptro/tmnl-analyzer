@@ -184,7 +184,7 @@ export default function Layout({ children }: any) {
           <main className="flex-1">
             <div>
               <div className="bg-white shadow">
-                <div className="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
+                <div className="px-4 sm:px-6 lg:px-8">
                   <div className="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
                     <div className="min-w-0 flex-1">
                       {/* Profile */}
@@ -224,7 +224,7 @@ export default function Layout({ children }: any) {
                   </div>
                 </div>
               </div>
-              <div className="mx-auto max-w-7xl px-4 lg:mx-auto lg:max-w-6xl py-4">{children}</div>
+              <div className="mx-auto px-4 lg:mx-auto  py-4">{children}</div>
             </div>
           </main>
         </div>

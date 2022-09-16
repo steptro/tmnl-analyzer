@@ -182,7 +182,7 @@ function Graph() {
               elements={elements}
               layout={layout}
               stylesheet={style}
-              style={{ width: "1080px", height: "1000px" }}
+              style={{ width: "2080px", height: "1000px" }}
               className="w-full h-full"
               cy={(something) => something.on("tap", "node[type = \"adress1\"]", () => {
                 window.open("https://www.google.com/maps/@52.3542897,4.9122285,3a,75y,93.16h,90t/data=!3m7!1e1!3m5!1s4zkAJWQtBG-pnSVl8kGpWw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D4zkAJWQtBG-pnSVl8kGpWw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D95.171265%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192");
