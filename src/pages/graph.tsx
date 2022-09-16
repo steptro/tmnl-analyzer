@@ -131,7 +131,7 @@ function Graph() {
     { data: { id: "16", type: "customer", label: "Shannon Portis", cdd_risk: 1, country: "NL", parent: "A" } },
     { data: { id: "17", type: "customer", label: "Donald Stahl", cdd_risk: 1, country: "NL", parent: "B" } },
     { data: { id: "18", type: "customer", label: "George Gallo", cdd_risk: 1, country: "NL", parent: "B" } },
-    { data: { id: "19", type: "customer", label: "Frist van Weerd", cdd_risk: 5, country: "RU", parent: "B" } },
+    { data: { id: "19", type: "customer", label: "Frits van Weerd", cdd_risk: 5, country: "RU", parent: "B" } },
     { data: { id: "20", type: "customer", label: "Emma Carovski", cdd_risk: 1, country: "NL", parent: "B" } },
     { data: { id: "21", type: "adress1", label: "Wibaut straat 131", href: "" } },
     { data: { id: "22", type: "adress2", label: "Kasteel Heeswijk 1", href: "" } },
